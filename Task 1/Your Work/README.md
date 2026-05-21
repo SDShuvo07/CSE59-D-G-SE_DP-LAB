@@ -1,23 +1,16 @@
-# Your SRS
 # Software Requirements Specification (SRS)
 
-# SmartEdu – Student Management System
+## Preface
+
+This document provides the Software Requirements Specification (SRS) for the Student Management System. It defines the system’s functionalities, performance criteria, security requirements, and overall system architecture necessary for development.
 
 ---
 
-# Preface
+## Version History
 
-This document provides the Software Requirements Specification (SRS) for the SmartEdu Student Management System. It defines the functional and non-functional requirements, system architecture, user interactions, and operational constraints required for successful system development and deployment.
-
----
-
-# Version History
-
-| Version | Description                                 |
-| ------- | ------------------------------------------- |
-| 1.0     | Initial Draft                               |
-| 1.1     | Added Non-Functional Requirements           |
-| 1.2     | Updated System Models and Security Features |
+* **Version 1.0** – Initial Draft.
+* **Version 1.1** – Added non-functional requirements and system models.
+* **Version 1.2** – Refined system evolution and glossary.
 
 ---
 
@@ -25,49 +18,40 @@ This document provides the Software Requirements Specification (SRS) for the Sma
 
 ## Purpose
 
-The SmartEdu Student Management System is a web-based platform designed to simplify academic administration and improve communication between students, teachers, and administrators. The system enables institutions to manage student records, attendance, assignments, grades, and reports efficiently.
-
----
+The Student Management System is a web-based application designed to streamline student information management, academic activities, attendance tracking, and communication between administrators, teachers, students, and parents. The system helps educational institutions efficiently manage daily operations and improve academic administration.
 
 ## Document Conventions
 
-This document follows IEEE SRS documentation standards using:
+This document follows the IEEE SRS standard, using:
 
-* **Must** – Mandatory requirements
-* **Should** – Recommended features
-* **May** – Optional future enhancements
+* **Must** – Indicates mandatory requirements.
+* **Should** – Indicates recommended features.
+* **May** – Indicates optional enhancements.
 
----
+## Intended Audience and Reading Suggestions
 
-## Intended Audience
-
-* Developers & Software Engineers
-* School/College Administrators
-* Project Managers
-* QA/Test Engineers
-* Stakeholders
-
----
+* **Project Managers & Developers** – For implementation guidance.
+* **School/College Authorities** – To understand system capabilities.
+* **Testers & QA Teams** – To validate system requirements.
+* **Database Designers** – For database and relationship modeling.
 
 ## Scope
 
 The system provides:
 
 * Student registration and management
-* Attendance tracking
-* Course and assignment management
-* Online result publishing
-* Teacher-student communication
-* Reporting and analytics
-* Role-based access control
-
----
+* Attendance management
+* Course and subject management
+* Result and grading management
+* Teacher and staff management
+* Notice and communication system
+* Role-based access and security
 
 ## References
 
-* IEEE 830-1998 SRS Standard
-* Educational Institution Requirements
-* Database Design Documentation
+* IEEE Standard 830-1998 (Software Requirements Specification)
+* Educational Institution Management Policies
+* System Modeling Documentation
 
 ---
 
@@ -75,256 +59,146 @@ The system provides:
 
 ## Product Perspective
 
-SmartEdu is a standalone cloud-based web application that may integrate with external communication services like email and SMS gateways.
-
----
+The Student Management System is a standalone web application that may integrate with external services such as email systems, SMS gateways, and online learning platforms.
 
 ## Product Functions
 
-### Student Management
-
-* Add, update, and remove student information
-* Maintain academic records
-
-### Attendance Management
-
-* Track daily attendance
-* Generate attendance reports
-
-### Assignment & Course Management
-
-* Teachers can upload assignments
-* Students can submit assignments online
-
-### Result Management
-
-* Publish examination results
-* Generate report cards
-
-### Communication
-
-* Notifications for assignments and exams
-* Messaging between teachers and students
-
----
+* **Student Management:** Add, update, and maintain student records.
+* **Attendance Management:** Record and monitor student attendance.
+* **Course Management:** Manage courses, classes, and subjects.
+* **Result Management:** Generate marksheets and academic reports.
+* **Teacher Management:** Manage teacher profiles and assigned subjects.
+* **Notification System:** Send notices, announcements, and alerts.
 
 ## User Classes and Characteristics
 
-### Admin
-
-* Manages the entire system
-* Controls users and permissions
-
-### Teacher
-
-* Manages courses, assignments, attendance, and grades
-
-### Student
-
-* Views assignments, attendance, and results
-
----
+* **Admin:** Manages users, system settings, and reports.
+* **Teacher:** Manages attendance, marks, and student progress.
+* **Student:** Views attendance, results, and notices.
+* **Parent:** Monitors student performance and attendance.
 
 ## Operating Environment
 
-* Web Application
-* Supported Browsers: Chrome, Firefox, Edge
-* Cloud-based hosting
-* Database: MongoDB/MySQL
-
----
+* Web-based application (accessible via Chrome, Firefox, Edge).
+* Cloud-hosted infrastructure.
+* **Database:** MongoDB / MySQL.
 
 ## Design and Implementation Constraints
 
-* Must comply with data privacy regulations
-* System should support scalability
-* Secure authentication required
-
----
+* Compliance with educational data privacy regulations.
+* Scalability for schools, colleges, and universities.
 
 ## Assumptions and Dependencies
 
-* Continuous internet connection required
-* SMS/email services depend on third-party APIs
+* Internet access is required for real-time updates.
+* Institutions will maintain valid student records.
+* Future mobile application support may be added.
 
 ---
 
 # 3. System Requirements Specification
 
-# Functional Requirements
+## Functional Requirements
 
----
-
-## User Authentication
+### User Authentication
 
 * The system must allow users to register and log in.
-* The system must support password reset functionality.
-* The system must implement role-based access control.
+* The system must provide password reset functionality.
+* The system must enforce role-based authentication.
 
----
+### Student Management
 
-## Student Management
+* Admins must be able to add, update, and remove student records.
+* The system must store academic and personal information of students.
+* Students should be assigned unique student IDs.
 
-* Admins must be able to add, edit, and remove students.
-* Teachers should be able to view assigned student information.
-* Students may update limited profile information.
+### Attendance Management
 
----
-
-## Attendance Management
-
-* Teachers must be able to mark attendance daily.
-* Students should be able to view attendance history.
+* Teachers must be able to record attendance.
+* Students and parents should be able to view attendance reports.
 * The system must generate attendance summaries.
 
----
+### Course and Subject Management
 
-## Assignment Management
+* Admins must be able to create courses and subjects.
+* Teachers must be assigned to subjects.
+* Students must be enrolled in courses.
 
-* Teachers must upload assignments.
-* Students must submit assignments online.
-* The system should notify students about deadlines.
+### Result Management
 
----
+* Teachers must be able to upload marks and grades.
+* Students should be able to view results online.
+* The system should generate report cards.
 
-## Result Management
+### Notification System
 
-* Teachers must upload examination marks.
-* Students must view published results.
-* Report cards should be downloadable in PDF format.
-
----
-
-## Notification System
-
-* The system must send alerts for:
-
-  * Assignment deadlines
-  * Exam schedules
-  * Result publication
-  * Attendance warnings
+* The system must send notices and announcements.
+* The system should notify students about exam schedules and results.
 
 ---
 
-# Non-Functional Requirements
+## Non-Functional Requirements
 
----
-
-## Performance Requirements
+### Performance Requirements
 
 * The system must support 1000+ concurrent users.
-* Page load time should be under 3 seconds.
+* Attendance and result updates must reflect in real time.
 
----
+### Security Requirements
 
-## Security Requirements
+* The system must implement role-based access control.
+* All sensitive data must be encrypted.
+* Secure login and session management must be implemented.
 
-* User passwords must be encrypted.
-* HTTPS must be implemented.
-* Role-based access control is mandatory.
+### Usability Requirements
 
----
+* The system should provide an easy-to-use interface.
+* The system must support accessibility standards.
 
-## Usability Requirements
+### Reliability and Availability
 
-* The system should have a responsive UI.
-* Accessibility standards should be maintained.
+* The system must ensure 99.9% uptime.
+* Backup and recovery mechanisms must be implemented.
 
----
+### Maintainability and Support
 
-## Reliability and Availability
+* The system must support modular updates.
+* Logging and debugging mechanisms must be available.
 
-* System uptime must be 99.9%.
-* Backup and recovery systems must be implemented.
+### Portability
 
----
-
-## Maintainability
-
-* Modular architecture must be used.
-* Error logging and debugging tools should be available.
-
----
-
-## Portability
-
-* Compatible with Windows, Linux, and MacOS.
-* Cloud deployment support required.
+* The system should run on Windows, Mac, and Linux.
+* The system must support cloud deployment.
 
 ---
 
 # 4. System Models
 
-## Context Diagram
+## ENTITY-RELATIONSHIP DIAGRAM
 
-* Student interacts with system
-* Teacher manages courses and attendance
-* Admin controls overall operations
+![Image](https://images.openai.com/static-rsc-4/yXAGU0ZeUeMfbF2GTviAZnhlCXH4eSbVLlrZrHm-O1HHjRyhK8o7GF3mzYvSJLMk4QYAjT_q9t9hUwgFWFKTQ8v3KZeamWeEJwVqouHkM5bTleslWAuJoJL8ohzu9eKwDD8Vtz8sjnRUYX1Ew3k1M0QvahlQz9bpiaI7bXJG5A8h9h5L4VsxesmyhQSoxqtV?purpose=fullsize)
 
----
+![Image](https://images.openai.com/static-rsc-4/AHevV40rUrP8XuXXASAcHQEXgBpn2nX1YsjfMHDK0vIrudnAK3lKN5g4ANG-tk3RmAMXAC7rr-CRuXba-3rXt5FXGN6UKI1vF4uLWWMCIkWX_EMG9M5d354eNWaI-pOZL1e4CNxFPjyM9RK-EQG4Zq6F16Vp9RsejNwOvKcBOW-iQrJ9mwN_IGpd-sepbv1h?purpose=fullsize)
 
-## Use Case Diagram
+![Image](https://images.openai.com/static-rsc-4/ElGGEhVt2hE9ahcf2P949h2rAPLnJIk5XdFQbdUCzA0NCviZcufhf6rl1ZgTsYNtcC4V4893FfHssSi8cMwHTNmZqERFI5nPByOvDwrWvLXkiTp7_SdFPlXxqH-wDIRZI0VgLoDLB3xc0bHkGX2bxZESdBSy9eEt7U3-x19tivUQucrqhFk6-n_kHf_8y8Yn?purpose=fullsize)
 
-### Admin Use Cases
-
-* Manage Users
-* Manage Courses
-* Generate Reports
-
-### Teacher Use Cases
-
-* Upload Assignments
-* Mark Attendance
-* Publish Results
-
-### Student Use Cases
-
-* View Results
-* Submit Assignments
-* Check Attendance
-
----
-
-## Entity Relationship Diagram (ERD)
-
-### Entities
-
-* Students
-* Teachers
-* Courses
-* Assignments
-* Attendance
-* Results
-
----
-
-## Sequence Diagram
-
-Shows interaction flow between:
-
-* User
-* Web Interface
-* Server
-* Database
+![Image](https://images.openai.com/static-rsc-4/eUjKZ4BwXn1qk7TnLx4gjbI6h6s_hjGsX7MAA2l33SMk7Q4v7kbC4oSw9D8QfStgY3sOxkvEfguGITDDXuk7yUjCIRfYqi4wt0v4ZsG8N5mzj4h41GaOl6yOhYoHeM_zzlPncL2_RpdR6nxQ_SAVISDTWH2BRbWuGdeshqYTGUmMNkuOYP9IbYVYMWMicYMb?purpose=fullsize)
 
 ---
 
 # 5. System Evolution
 
-## Future Enhancements
+## Assumptions
 
-* Mobile application support
-* AI-based performance prediction
-* Online class integration
-* Video conferencing support
-
----
+* AI-based analytics may be integrated in future versions.
+* Future support for mobile platforms.
+* Scalability for large educational institutions.
 
 ## Expected Changes
 
-* Integration with payment systems
-* Multi-language support
-* Advanced analytics dashboard
+* Integration with online examination systems.
+* AI-powered student performance analysis.
+* Integration with payment gateways for fees.
 
 ---
 
@@ -332,37 +206,10 @@ Shows interaction flow between:
 
 ## Hardware Requirements
 
-* Cloud server infrastructure
-* Minimum 8GB RAM servers
-* SSD-based storage
-
----
+* Cloud-based infrastructure with scalable servers.
 
 ## Database Requirements
 
-The database must support:
-
-* Student records
-* Course management
-* Attendance records
-* Assignment submissions
-* Result storage
-
----
-
-# Suggested Technology Stack
-
-| Layer             | Technology        |
-| ----------------- | ----------------- |
-| Frontend          | React.js          |
-| Backend           | Node.js + Express |
-| Database          | MongoDB           |
-| Authentication    | JWT               |
-| Real-Time Updates | Socket.IO         |
-| Hosting           | AWS/Vercel        |
-
----
-
-# Conclusion
-
-The SmartEdu Student Management System aims to improve educational administration through automation, secure data management, and efficient communication. The platform is scalable, secure, and designed to support future technological enhancements.
+* Must maintain logical data relationships.
+* Must support efficient student and academic record management.
+* Must ensure data consistency and integrity.
